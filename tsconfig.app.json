@@ -9,6 +9,10 @@
   "include": [
     "src/**/*.ts"
   ],
+  "files":[
+    "src/polyfills.ts",
+    "src/main.ts"
+  ],
   "exclude": [
     "src/**/*.spec.ts"
   ]
