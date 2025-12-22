@@ -1,0 +1,28 @@
+.container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 220px;
+  background-color: #ffffffb0;
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 15px;
+    padding-left: 10px;
+  }
+
+  .link {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.content {
+  padding: 16px;
+  height: 100%;
+}
