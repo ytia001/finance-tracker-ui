@@ -1,5 +1,5 @@
 {
-  "name": "fintrac-ui",
+  "name": "@ytia001/fintrac-ui",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -25,7 +25,7 @@
       }
     ]
   },
-  "private": true,
+  "private": false,
   "packageManager": "npm@11.6.2",
   "dependencies": {
     "@angular/common": "^21.0.0",

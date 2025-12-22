@@ -1,5 +1,5 @@
-name: Test
-run-name: ${{github.actor}} running test on ${{github.ref_name}}
+name: CI - test and build 
+run-name: ${{github.actor}} running test and build on ${{github.ref_name}}
 
 on:
   push:
@@ -7,8 +7,13 @@ on:
       - '*'
   pull_request:
 
+permissions:
+  contents: read
+  packages: write
+  checks: write
+
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -43,3 +48,30 @@ jobs:
           name: Angular Unit Tests
           path: test-results/junit-results.xml
           reporter: java-junit
+
+  build-and-publish:
+    name: Build & Publish
+    needs: test   
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com
+          scope: '@ytia001' #must match github user, same with 'name' in package.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Angular app
+        run: npm run build -- --configuration production
+
+      - name: Publish to GitHub Packages
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
