@@ -38,8 +38,8 @@ jobs:
 
       - name: Display Test Report
         if: always()
-        uses: dorny/test-reporter@v1
+        uses: dorny/test-reporter@v2
         with:
-          name: Unit Tests
+          name: Angular Unit Tests
           path: test-results/junit-results.xml
-          reporter: github-actions-summary
+          reporter: java-junit
