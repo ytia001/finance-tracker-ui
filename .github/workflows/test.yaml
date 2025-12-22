@@ -35,3 +35,10 @@ jobs:
         with:
             name: test-report
             path: test-results/junit-results.xml
+
+      - name: Display Test Report
+        if: always()
+        uses: dorny/test-reporter@v1
+        with:
+          name: Unit Tests
+          path: test-results/junit-results.xml
