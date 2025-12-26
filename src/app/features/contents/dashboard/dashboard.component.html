@@ -1,1 +1,28 @@
-<p>dashboard works!</p>
+<mat-accordion multi>
+  <mat-expansion-panel expanded>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Expenditure Breakdown </mat-panel-title>
+      <mat-panel-description> Monthly Expenditure Breakdown</mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-pie-chart [inputData]="dummyDashboardData"></app-pie-chart>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel expanded>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Expenditure Overview Line </mat-panel-title>
+      <mat-panel-description> Overview </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-line-chart [inputData]="dummyDashboardData"></app-line-chart>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel expanded>
+    <mat-expansion-panel-header>
+      <mat-panel-title> User Growth </mat-panel-title>
+      <mat-panel-description> Last 12 months </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <app-bar-chart [inputData]="dummyDashboardData"></app-bar-chart>
+  </mat-expansion-panel>
+</mat-accordion>

@@ -7,7 +7,7 @@
     </nav>
   </mat-sidenav>
 
-  <mat-sidenav-content>
+  <mat-sidenav-content class="main">
     <!-- Header -->
     <mat-toolbar color="primary">
       <button mat-icon-button (click)="toggleSideNav()">
@@ -20,5 +20,8 @@
     <div class="content">
       <router-outlet></router-outlet>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">Finance Tracker Footer</footer>
   </mat-sidenav-content>
 </mat-sidenav-container>

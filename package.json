@@ -40,6 +40,9 @@
     "@ngrx/store": "^21.0.1",
     "@ngrx/store-devtools": "^21.0.1",
     "bootstrap": "^5.3.8",
+    "chart.js": "^4.5.1",
+    "chroma-js": "^3.2.0",
+    "ng2-charts": "^8.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "^0.16.0"
@@ -49,6 +52,7 @@
     "@angular/build": "^21.0.4",
     "@angular/cli": "^21.0.4",
     "@angular/compiler-cli": "^21.0.0",
+    "@types/chroma-js": "^3.1.2",
     "angular-eslint": "21.1.0",
     "eslint": "^9.39.1",
     "jsdom": "^27.1.0",
