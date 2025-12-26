@@ -21,6 +21,10 @@ export abstract class AbstractChartComponent<T extends ChartType> {
   // abstract getConfig(): ChartOptions;
 
   public setData(data: DashboardData): void {
+    if (!data) {
+      this.dataSet = { labels: [], datasets: [] };
+      return;
+    }
     this.dataSet = this.parseData(data);
   }
 }
