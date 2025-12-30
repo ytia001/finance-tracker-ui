@@ -50,6 +50,10 @@ export class BarChartComponent extends AbstractChartComponent<'bar'> implements 
   get chartOptions(): ChartOptions<'bar'> {
     return {
       responsive: true,
+      animation: {
+        duration: 2000,
+        easing: 'easeOutQuart',
+      },
       plugins: {
         legend: {
           position: 'top',

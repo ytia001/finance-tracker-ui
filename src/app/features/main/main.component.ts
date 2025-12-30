@@ -1,20 +1,27 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
+import { Store } from '@ngrx/store';
+import { MainActions } from '../../../store/actions/main.actions';
 
 @Component({
   selector: 'app-main',
-  imports: [RouterModule, MatSidenavModule, MatButtonModule, MatToolbarModule, MatIconModule],
+  imports: [RouterModule, MatSidenavModule, MatButtonModule, HeaderComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
 })
 export class MainComponent {
   @ViewChild('sidenav') sideNavComp!: MatSidenav;
 
+  private store = inject(Store);
+
   toggleSideNav(): void {
     this.sideNavComp.toggle();
+  }
+
+  handleAddFinanceClicked(): void {
+    this.store.dispatch(MainActions.openAddDataEntryModal());
   }
 }

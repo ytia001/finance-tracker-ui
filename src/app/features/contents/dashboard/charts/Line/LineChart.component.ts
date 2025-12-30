@@ -53,6 +53,10 @@ export class LineChartComponent extends AbstractChartComponent<'line'> implement
   get chartOptions(): ChartOptions<'line'> {
     return {
       responsive: true,
+      animation: {
+        duration: 2000,
+        easing: 'easeOutQuart',
+      },
       plugins: {
         legend: {
           position: 'top',

@@ -51,6 +51,10 @@ export class PieChartComponent extends AbstractChartComponent<'pie'> implements 
   get pieChartOptions(): ChartOptions<'pie'> {
     return {
       responsive: true,
+      animation: {
+        duration: 2000,
+        easing: 'easeOutQuart',
+      },
       plugins: {
         legend: {
           position: 'top',

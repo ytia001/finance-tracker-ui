@@ -1,3 +1,5 @@
 <div class="chart-wrapper">
-  <canvas baseChart [data]="dataSet" [type]="chartType" [options]="pieChartOptions"> </canvas>
+  @if (inputData) {
+    <canvas baseChart [data]="dataSet" [type]="chartType" [options]="pieChartOptions"> </canvas>
+  }
 </div>

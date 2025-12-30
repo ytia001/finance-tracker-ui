@@ -9,12 +9,10 @@
 
   <mat-sidenav-content class="main">
     <!-- Header -->
-    <mat-toolbar color="primary">
-      <button mat-icon-button (click)="toggleSideNav()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>Finance Tracker</span>
-    </mat-toolbar>
+    <app-header
+      (sideNavClicked)="sidenav.toggle()"
+      (addFinanceClicked)="handleAddFinanceClicked()"
+    ></app-header>
 
     <!-- Routed Page -->
     <div class="content">

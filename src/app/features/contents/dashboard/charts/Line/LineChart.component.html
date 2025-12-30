@@ -1,3 +1,5 @@
 <div class="line-wrapper">
-  <canvas baseChart [data]="dataSet" [type]="chartType" [options]="chartOptions"> </canvas>
+  @if (inputData) {
+    <canvas baseChart [data]="dataSet" [type]="chartType" [options]="chartOptions"> </canvas>
+  }
 </div>
