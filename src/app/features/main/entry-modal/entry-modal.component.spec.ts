@@ -1,22 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideMockStore, MockStore } from '@ngrx/store/testing';
-import { ModalDialogComponent } from './modal-dialog.component';
+import { EntryModalComponent } from './entry-modal.component';
 import { MatDialogRef } from '@angular/material/dialog';
 
-describe('ModalDialogComponent', () => {
-  let component: ModalDialogComponent;
-  let fixture: ComponentFixture<ModalDialogComponent>;
-  let matDialogRefSpy: jasmine.SpyObj<MatDialogRef<ModalDialogComponent>>;
+describe('EntryModalComponent', () => {
+  let component: EntryModalComponent;
+  let fixture: ComponentFixture<EntryModalComponent>;
+  let matDialogRefSpy: jasmine.SpyObj<MatDialogRef<EntryModalComponent>>;
 
   beforeEach(async () => {
     matDialogRefSpy = jasmine.createSpyObj('MatDialogRef', ['close']);
 
     await TestBed.configureTestingModule({
-      imports: [ModalDialogComponent],
+      imports: [EntryModalComponent],
       providers: [{ provide: MatDialogRef, useValue: matDialogRefSpy }],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ModalDialogComponent);
+    fixture = TestBed.createComponent(EntryModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
     await fixture.whenStable();

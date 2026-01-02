@@ -3,8 +3,8 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { MainActions } from '../actions/main.actions';
 import { catchError, filter, map, of, switchMap } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalDialogComponent } from '../../app/shared/modal-dialog/modal-dialog.component';
 import { MainResourceActions } from '../actions/resources/main.actions';
+import { EntryModalComponent } from '../../app/features/main/entry-modal/entry-modal.component';
 
 @Injectable()
 export class MainEffects {
@@ -15,7 +15,7 @@ export class MainEffects {
     return this.actions$.pipe(
       ofType(MainActions.openAddDataEntryModal),
       switchMap(() => {
-        const dialogRef = this.dialog.open(ModalDialogComponent, {
+        const dialogRef = this.dialog.open(EntryModalComponent, {
           disableClose: true,
           width: '35%',
           height: '55%',
