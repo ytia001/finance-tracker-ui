@@ -1,27 +1,50 @@
 import { Component, inject } from '@angular/core';
 import { AbstractModalDialogComponent } from '../../../shared/modal-dialog/modal-dialog.component';
 import { MatButtonModule } from '@angular/material/button';
-import {
-  MatDialogActions,
-  MatDialogContent,
-  MatDialogRef,
-  MatDialogTitle,
-} from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { EntryModalControlService } from './entry-modal-control-service/entry-modal-control.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectOption } from '../../../../models/MaterialModels';
+import { CategoryOptions } from '../../../../constants/Category';
 
 @Component({
   selector: 'app-entry-modal',
-  imports: [MatButtonModule, MatDialogTitle, MatDialogContent, MatDialogActions],
+  imports: [
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+  ],
+  providers: [],
   templateUrl: './entry-modal.component.html',
   styleUrl: './entry-modal.component.scss',
 })
 export class EntryModalComponent extends AbstractModalDialogComponent {
   private matdialogRef = inject(MatDialogRef<EntryModalComponent, string | null>);
+  private entryModalControlService = inject(EntryModalControlService);
+
+  entryFormGroup: FormGroup = this.entryModalControlService.toFormGroup();
+
+  get categoryOptions(): MatSelectOption[] {
+    return Object.entries(CategoryOptions).map(([value, label]) => {
+      return { value, label };
+    });
+  }
 
   override closeDialog(): void {
     this.matdialogRef.close(null);
   }
 
   override saveDialog(): void {
-    this.matdialogRef.close('save button clicked');
+    this.matdialogRef.close(this.entryModalControlService.toRequestPayload(this.entryFormGroup));
   }
 }

@@ -8,6 +8,8 @@ import { MainResourceActions } from '../actions/resources/main.actions';
 import { EntryModalComponent } from '../../app/features/main/entry-modal/entry-modal.component';
 import { Action } from '@ngrx/store';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ModalConstants } from '../../constants/Modal';
+import { TestHelpers } from '../../app/test-helpers';
 
 describe('MainEffects', () => {
   let actions$: Observable<Action>;
@@ -34,7 +36,7 @@ describe('MainEffects', () => {
   });
 
   it('should open dialog and dispatch saveDataEntrySuccess when dialog returns data', (done) => {
-    const dialogResult = 'test-data';
+    const dialogResult = TestHelpers.createDateEntryRequest();
 
     dialogRefSpy.afterClosed.and.returnValue(of(dialogResult));
     dialogSpy.open.and.returnValue(dialogRefSpy);
@@ -46,8 +48,8 @@ describe('MainEffects', () => {
         EntryModalComponent,
         jasmine.objectContaining({
           disableClose: true,
-          width: '35%',
-          height: '55%',
+          width: ModalConstants.MODAL_WIDTH_PERCENTAGE,
+          height: ModalConstants.MODAL_HEIGHT_PERCENTAGE,
         }),
       );
 

@@ -1,4 +1,9 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, isDevMode } from '@angular/core';
+import {
+  ApplicationConfig,
+  provideBrowserGlobalErrorListeners,
+  isDevMode,
+  importProvidersFrom,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -7,6 +12,7 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { MainEffects } from '../store/effects/main.effects';
+import { MatNativeDateModule } from '@angular/material/core';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,5 +22,6 @@ export const appConfig: ApplicationConfig = {
     provideEffects([MainEffects]),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
     provideCharts(withDefaultRegisterables()),
+    importProvidersFrom(MatNativeDateModule),
   ],
 };

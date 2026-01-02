@@ -5,6 +5,8 @@ import { catchError, filter, map, of, switchMap } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { MainResourceActions } from '../actions/resources/main.actions';
 import { EntryModalComponent } from '../../app/features/main/entry-modal/entry-modal.component';
+import { ModalConstants } from '../../constants/Modal';
+import { DataEntryRequest } from '../../app/features/main/entry-modal/entry-modal-control-service/entry-modal-control.service';
 
 @Injectable()
 export class MainEffects {
@@ -17,13 +19,15 @@ export class MainEffects {
       switchMap(() => {
         const dialogRef = this.dialog.open(EntryModalComponent, {
           disableClose: true,
-          width: '35%',
-          height: '55%',
+          width: ModalConstants.MODAL_WIDTH_PERCENTAGE,
+          height: ModalConstants.MODAL_HEIGHT_PERCENTAGE,
         });
 
         return dialogRef.afterClosed().pipe(
-          filter((result: string | null): result is string => !!result),
-          map((result) => MainResourceActions.saveDataEntrySuccess({ data: result })),
+          filter((result: DataEntryRequest | null): result is DataEntryRequest => !!result),
+          map((result) => {
+            return MainResourceActions.saveDataEntrySuccess({ data: result });
+          }),
           catchError((error) => of(MainActions.error({ error }))),
         );
       }),

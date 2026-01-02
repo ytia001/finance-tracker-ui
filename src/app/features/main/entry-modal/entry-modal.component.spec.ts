@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { EntryModalComponent } from './entry-modal.component';
 import { MatDialogRef } from '@angular/material/dialog';
+import { DataEntryRequest } from './entry-modal-control-service/entry-modal-control.service';
+import { Category } from '../../../../constants/Category';
+import { FormControl, FormGroup } from '@angular/forms';
 
 describe('EntryModalComponent', () => {
   let component: EntryModalComponent;
@@ -31,7 +34,20 @@ describe('EntryModalComponent', () => {
   });
 
   it('should call dialogRef.close() with data when saveDialog is called', () => {
+    component.entryFormGroup = new FormGroup({
+      category: new FormControl(Category.INCOME),
+      amount: new FormControl(100),
+      date: new FormControl(new Date('2024-01-01')),
+    });
+
+    fixture.detectChanges();
+
     component.saveDialog();
-    expect(matDialogRefSpy.close).toHaveBeenCalledWith('save button clicked');
+
+    expect(matDialogRefSpy.close).toHaveBeenCalledWith({
+      category: Category.INCOME,
+      amount: 100,
+      date: new Date('2024-01-01'),
+    } as DataEntryRequest);
   });
 });
