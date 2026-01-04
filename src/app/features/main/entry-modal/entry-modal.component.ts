@@ -9,8 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatSelectOption } from '../../../../models/MaterialModels';
-import { CategoryOptions } from '../../../../constants/Category';
+import { MatSelectOption } from '../../../models/MaterialModels';
+import { CategoryOptions } from '../../../constants/Category';
 
 @Component({
   selector: 'app-entry-modal',

@@ -1,1 +1,20 @@
-<p>transactions works!</p>
+<mat-list>
+  @let entries = (listEntries$ | async) ?? [];
+  @for (entry of entries; track $index) {
+    <mat-list-item>
+      <mat-icon
+        matListItemIcon
+        [class.income]="entry.category === 'Income'"
+        [class.expense]="entry.category === 'Expense'"
+      >
+        {{ entry.category === 'Income' ? 'add' : 'remove' }}
+      </mat-icon>
+
+      <div matListItemLine>{{ entry.category }} — {{ entry.amount | currency }}</div>
+
+      <div matListItemLine>
+        {{ entry.date | date: 'mediumDate' }}
+      </div>
+    </mat-list-item>
+  }
+</mat-list>

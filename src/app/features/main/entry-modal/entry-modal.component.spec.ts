@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { EntryModalComponent } from './entry-modal.component';
 import { MatDialogRef } from '@angular/material/dialog';
 import { DataEntryRequest } from './entry-modal-control-service/entry-modal-control.service';
-import { Category } from '../../../../constants/Category';
+import { Category } from '../../../constants/Category';
 import { FormControl, FormGroup } from '@angular/forms';
 
 describe('EntryModalComponent', () => {

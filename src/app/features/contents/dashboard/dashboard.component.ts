@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { DataEntry } from '../../../../models/DataEntry';
-import { DashboardConfiguration } from '../../../../models/Configuration';
-import { Category } from '../../../../constants/Category';
+import { DataEntry } from '../../../models/DataEntry';
+import { DashboardConfiguration } from '../../../models/Configuration';
+import { Category } from '../../../constants/Category';
 import { PieChartComponent } from './charts/Pie/PieChart.component';
 import { LineChartComponent } from './charts/Line/LineChart.component';
 import { BarChartComponent } from './charts/Bar/BarChart.component';

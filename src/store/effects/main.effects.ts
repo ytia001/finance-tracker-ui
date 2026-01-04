@@ -5,13 +5,15 @@ import { catchError, filter, map, of, switchMap } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { MainResourceActions } from '../actions/resources/main.actions';
 import { EntryModalComponent } from '../../app/features/main/entry-modal/entry-modal.component';
-import { ModalConstants } from '../../constants/Modal';
+import { ModalConstants } from '../../app/constants/Modal';
 import { DataEntryRequest } from '../../app/features/main/entry-modal/entry-modal-control-service/entry-modal-control.service';
+import { MainService } from '../../app/services/main.services';
 
 @Injectable()
 export class MainEffects {
   private actions$ = inject(Actions);
   private dialog = inject(MatDialog);
+  private service = inject(MainService);
 
   openAddDataEntryModal$ = createEffect(() => {
     return this.actions$.pipe(
@@ -26,11 +28,23 @@ export class MainEffects {
         return dialogRef.afterClosed().pipe(
           filter((result: DataEntryRequest | null): result is DataEntryRequest => !!result),
           map((result) => {
-            return MainResourceActions.saveDataEntrySuccess({ data: result });
+            return MainResourceActions.saveDataEntry({ data: result });
           }),
           catchError((error) => of(MainActions.error({ error }))),
         );
       }),
+    );
+  });
+
+  saveDataEntry$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(MainResourceActions.saveDataEntry),
+      switchMap(({ data }) =>
+        this.service.create(data).pipe(
+          map((response) => MainResourceActions.saveDataEntrySuccess({ data: response })),
+          catchError((error) => of(MainResourceActions.saveDataEntryFailure({ error }))),
+        ),
+      ),
     );
   });
 }

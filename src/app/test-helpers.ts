@@ -1,4 +1,4 @@
-import { Category } from '../constants/Category';
+import { Category } from './constants/Category';
 import { DataEntryRequest } from './features/main/entry-modal/entry-modal-control-service/entry-modal-control.service';
 
 export class TestHelpers {

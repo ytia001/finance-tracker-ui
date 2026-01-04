@@ -3,8 +3,8 @@ import { AbstractChartComponent, AbstractDatapoint } from '../abstract-chart';
 import { DashboardData } from '../../dashboard.component';
 import { ChartData, ChartOptions } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
-import { ChartGroupBy } from '../../../../../../constants/Chart';
-import { DataEntry } from '../../../../../../models/DataEntry';
+import { ChartGroupBy } from '../../../../../constants/Chart';
+import { DataEntry } from '../../../../../models/DataEntry';
 
 @Component({
   selector: 'app-bar-chart',

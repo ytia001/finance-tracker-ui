@@ -4,8 +4,8 @@ import { DashboardData } from '../../dashboard.component';
 import { ChartData, ChartOptions } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import chroma from 'chroma-js';
-import { ChartGroupBy } from '../../../../../../constants/Chart';
-import { DataEntry } from '../../../../../../models/DataEntry';
+import { ChartGroupBy } from '../../../../../constants/Chart';
+import { DataEntry } from '../../../../../models/DataEntry';
 
 @Component({
   selector: 'app-line-chart',
