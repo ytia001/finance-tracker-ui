@@ -14,6 +14,13 @@ export const routes: Routes = [
         loadChildren: () =>
           import('./features/contents/dashboard/dashboard.routes').then((m) => m.dashboardRoutes),
       },
+      {
+        path: 'transactions',
+        loadChildren: () =>
+          import('./features/contents/transactions/transactions.routes').then(
+            (m) => m.transactionRoutes,
+          ),
+      },
 
       // TODO: determine if lazy feature store better or normal convention
       { path: 'breakdown', component: BreakdownComponent },
