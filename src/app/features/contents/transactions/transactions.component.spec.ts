@@ -29,4 +29,14 @@ describe('TransactionsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  //TODO: remove this example test and add real tests
+  it('should render an empty list when no entries are present', () => {
+    mockSelectListEntries.setResult([]);
+    store.refreshState();
+    fixture.detectChanges();
+
+    const listItems = fixture.nativeElement.querySelectorAll('.list-item');
+    expect(listItems.length).toBe(0);
+  });
 });

@@ -23,8 +23,8 @@ export class TransactionsComponent {
 
   listEntries$: Observable<ListEntry[]> = this.store.select(selectListEntries);
 
-  entries: ListEntry[] = [
-    { category: 'Income', amount: 100, date: new Date() },
-    { category: 'Expense', amount: 50, date: new Date() },
-  ];
+  // entries: ListEntry[] = [
+  //   { category: 'Income', amount: 100, date: new Date() },
+  //   { category: 'Expense', amount: 50, date: new Date() },
+  // ];
 }
