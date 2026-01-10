@@ -1,15 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ListEntry, TransactionsComponent } from './transactions.component';
+import { ListData, TransactionsComponent } from './transactions.component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { MemoizedSelector } from '@ngrx/store';
 import { TransactionState } from '../../../../store/reducers/transactions.reducer';
-import { selectListEntries } from '../../../../store/selectors/transactions.selector';
+import { selectListData } from '../../../../store/selectors/transactions.selector';
 
 describe('TransactionsComponent', () => {
   let component: TransactionsComponent;
   let fixture: ComponentFixture<TransactionsComponent>;
   let store: MockStore;
-  let mockSelectListEntries: MemoizedSelector<TransactionState, ListEntry[]>;
+  let mockSelectListData: MemoizedSelector<TransactionState, ListData | null>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -18,7 +18,7 @@ describe('TransactionsComponent', () => {
     }).compileComponents();
 
     store = TestBed.inject(MockStore);
-    mockSelectListEntries = store.overrideSelector(selectListEntries, []);
+    mockSelectListData = store.overrideSelector(selectListData, null);
 
     fixture = TestBed.createComponent(TransactionsComponent);
     component = fixture.componentInstance;
@@ -32,7 +32,7 @@ describe('TransactionsComponent', () => {
 
   //TODO: remove this example test and add real tests
   it('should render an empty list when no entries are present', () => {
-    mockSelectListEntries.setResult([]);
+    mockSelectListData.setResult(null);
     store.refreshState();
     fixture.detectChanges();
 

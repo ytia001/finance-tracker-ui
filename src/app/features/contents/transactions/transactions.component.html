@@ -1,20 +1,8 @@
 <mat-list>
-  @let entries = (listEntries$ | async) ?? [];
-  @for (entry of entries; track $index) {
-    <mat-list-item>
-      <mat-icon
-        matListItemIcon
-        [class.income]="entry.category === 'Income'"
-        [class.expense]="entry.category === 'Expense'"
-      >
-        {{ entry.category === 'Income' ? 'add' : 'remove' }}
-      </mat-icon>
-
-      <div matListItemLine>{{ entry.category }} — {{ entry.amount | currency }}</div>
-
-      <div matListItemLine>
-        {{ entry.date | date: 'mediumDate' }}
-      </div>
-    </mat-list-item>
+  @let listGroupData = (listGroupData$ | async) ?? undefined;
+  @if (listGroupData) {
+    @for (data of listGroupData; track $index) {
+      <app-transactions-list-group [listGroupData]="data"></app-transactions-list-group>
+    }
   }
 </mat-list>

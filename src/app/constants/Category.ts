@@ -17,3 +17,8 @@ export const CategoryOptions: Record<Category, string> = {
   [Category.ELECTRICAL_APPLIANCES]: 'Electrical Appliances',
   [Category.OTHERS]: 'Others',
 };
+
+export enum financialFlow {
+  INFLOW = 'inflow',
+  OUTFLOW = 'outflow',
+}

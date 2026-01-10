@@ -1,0 +1,20 @@
+@if (listGroup) {
+  <div mat-subheader>
+    <span>{{ listGroup.identifier | date: 'fullDate' }}</span>
+    <span class="group-totals">
+      Inflow: {{ listGroup.inflow | currency }} | Outflow: {{ listGroup.outflow | currency }} | Net:
+      {{ listGroup.netIncome | currency }}
+    </span>
+  </div>
+}
+
+@for (entry of listEntry; track $index) {
+  <mat-list-item>
+    <mat-icon matListItemIcon>
+      {{ entry.category === 'income' ? 'add' : 'remove' }}
+    </mat-icon>
+    <div matListItemLine>{{ entry.category }} — {{ entry.amount | currency }}</div>
+    <div matListItemLine>{{ entry.date | date: 'mediumDate' }}</div>
+  </mat-list-item>
+}
+<mat-divider></mat-divider>
