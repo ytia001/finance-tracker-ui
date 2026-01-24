@@ -4,7 +4,7 @@ import { DashboardComponent } from './dashboard.component';
 import {
   DASHBOARD_FEATURE_KEY,
   dashboardReducer,
-} from '../../../../store/reducers/dashboard.reducer';
+} from '../../../core/store/reducers/dashboard.reducer';
 
 export const dashboardRoutes: Routes = [
   {

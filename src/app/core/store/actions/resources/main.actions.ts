@@ -1,7 +1,7 @@
 import { createActionGroup, props } from '@ngrx/store';
-import { DataEntryRequest } from '../../../app/features/main/entry-modal/entry-modal-control-service/entry-modal-control.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { DataEntry } from '../../../app/models/DataEntry';
+import { DataEntry } from '../../../../models/DataEntry';
+import { DataEntryRequest } from '../../../../features/main/entry-modal/entry-modal-control-service/entry-modal-control.service';
 
 export const MainResourceActions = createActionGroup({
   source: 'Main [API]',

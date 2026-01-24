@@ -4,7 +4,7 @@ import { DashboardData } from '../../dashboard.component';
 import { ChartData, ChartOptions } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import chroma from 'chroma-js';
-import { ChartGroupBy } from '../../../../../constants/Chart';
+import { ChartGroupBy } from '../../../../../core/constants/Chart';
 import { DataEntry } from '../../../../../models/DataEntry';
 
 @Component({

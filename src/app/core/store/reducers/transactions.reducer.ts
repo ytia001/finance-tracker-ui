@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import { DataEntry } from '../../app/models/DataEntry';
 import { MainResourceActions } from '../actions/resources/main.actions';
+import { DataEntry } from '../../../models/DataEntry';
 
 export const TRANSACTION_FEATURE_KEY = 'transaction';
 

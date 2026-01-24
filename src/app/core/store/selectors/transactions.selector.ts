@@ -1,12 +1,12 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { TRANSACTION_FEATURE_KEY, TransactionState } from '../reducers/transactions.reducer';
-import { ListData } from '../../app/features/contents/transactions/transactions.component';
-import { DataEntry } from '../../app/models/DataEntry';
-import { Category } from '../../app/constants/Category';
+import { DataEntry } from '../../../models/DataEntry';
+import { ListData } from '../../../features/contents/transactions/transactions.component';
 import {
   ListEntry,
   ListGroup,
-} from '../../app/features/contents/transactions/transactions-list-group/transactions-list-group.component';
+} from '../../../features/contents/transactions/transactions-list-group/transactions-list-group.component';
+import { Category } from '../../constants/Category';
 
 export const selectTransactionState =
   createFeatureSelector<TransactionState>(TRANSACTION_FEATURE_KEY);

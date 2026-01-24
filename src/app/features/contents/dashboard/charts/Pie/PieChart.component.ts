@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractChartComponent, AbstractDatapoint } from '../abstract-chart';
 import { DashboardData } from '../../dashboard.component';
-import { Category } from '../../../../../constants/Category';
+import { Category } from '../../../../../core/constants/Category';
 import { ChartData, ChartOptions } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import chroma from 'chroma-js';

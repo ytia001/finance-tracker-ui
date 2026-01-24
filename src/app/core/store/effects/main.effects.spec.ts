@@ -5,11 +5,11 @@ import { Observable, of, throwError } from 'rxjs';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MainActions } from '../actions/main.actions';
 import { MainResourceActions } from '../actions/resources/main.actions';
-import { EntryModalComponent } from '../../app/features/main/entry-modal/entry-modal.component';
 import { Action } from '@ngrx/store';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ModalConstants } from '../../app/constants/Modal';
-import { TestHelpers } from '../../app/test-helpers';
+import { EntryModalComponent } from '../../../features/main/entry-modal/entry-modal.component';
+import { ModalConstants } from '../../constants/Modal';
+import { TestHelpers } from '../../../test-helpers';
 
 describe('MainEffects', () => {
   let actions$: Observable<Action>;

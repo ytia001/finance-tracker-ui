@@ -1,4 +1,4 @@
-import { Category } from '../constants/Category';
+import { Category } from '../core/constants/Category';
 
 export interface DataEntry {
   id: number;

@@ -4,10 +4,10 @@ import { MainActions } from '../actions/main.actions';
 import { catchError, filter, map, of, switchMap } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { MainResourceActions } from '../actions/resources/main.actions';
-import { EntryModalComponent } from '../../app/features/main/entry-modal/entry-modal.component';
-import { ModalConstants } from '../../app/constants/Modal';
-import { DataEntryRequest } from '../../app/features/main/entry-modal/entry-modal-control-service/entry-modal-control.service';
-import { MainService } from '../../app/services/main.services';
+import { MainService } from '../../services/main.services';
+import { ModalConstants } from '../../constants/Modal';
+import { EntryModalComponent } from '../../../features/main/entry-modal/entry-modal.component';
+import { DataEntryRequest } from '../../../features/main/entry-modal/entry-modal-control-service/entry-modal-control.service';
 
 @Injectable()
 export class MainEffects {

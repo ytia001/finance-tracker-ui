@@ -5,7 +5,7 @@ import { provideRouter } from '@angular/router';
 import { Component } from '@angular/core';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { MatSidenav } from '@angular/material/sidenav';
-import { MainActions } from '../../../store/actions/main.actions';
+import { MainActions } from '../../core/store/actions/main.actions';
 
 @Component({ standalone: true, template: '' })
 class DummyDashboardComponent {}

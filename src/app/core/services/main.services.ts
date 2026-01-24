@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { DataEntryRequest } from '../features/main/entry-modal/entry-modal-control-service/entry-modal-control.service';
-import { DataEntry } from '../models/DataEntry';
+import { DataEntryRequest } from '../../features/main/entry-modal/entry-modal-control-service/entry-modal-control.service';
+import { DataEntry } from '../../models/DataEntry';
 
 @Injectable({ providedIn: 'root' })
 export class MainService {

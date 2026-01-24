@@ -4,7 +4,7 @@ import { provideState } from '@ngrx/store';
 import {
   TRANSACTION_FEATURE_KEY,
   transactionReducer,
-} from '../../../../store/reducers/transactions.reducer';
+} from '../../../core/store/reducers/transactions.reducer';
 
 export const transactionRoutes: Routes = [
   {

@@ -4,7 +4,7 @@ import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { Store } from '@ngrx/store';
-import { MainActions } from '../../../store/actions/main.actions';
+import { MainActions } from '../../core/store/actions/main.actions';
 
 @Component({
   selector: 'app-main',

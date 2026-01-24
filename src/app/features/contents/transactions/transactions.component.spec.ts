@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ListData, TransactionsComponent } from './transactions.component';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { MemoizedSelector } from '@ngrx/store';
-import { TransactionState } from '../../../../store/reducers/transactions.reducer';
-import { selectListData } from '../../../../store/selectors/transactions.selector';
+import { TransactionState } from '../../../core/store/reducers/transactions.reducer';
+import { selectListData } from '../../../core/store/selectors/transactions.selector';
 
 describe('TransactionsComponent', () => {
   let component: TransactionsComponent;

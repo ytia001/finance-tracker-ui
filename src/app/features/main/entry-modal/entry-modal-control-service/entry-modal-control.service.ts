@@ -1,7 +1,7 @@
 // imports
 
 import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
-import { Category } from '../../../../constants/Category';
+import { Category } from '../../../../core/constants/Category';
 import { inject, Injectable } from '@angular/core';
 import { AsFormGroup } from '../../../../shared/modal-dialog/modal-helper';
 

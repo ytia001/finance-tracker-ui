@@ -11,8 +11,8 @@ import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
-import { MainEffects } from '../store/effects/main.effects';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MainEffects } from './core/store/effects/main.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [

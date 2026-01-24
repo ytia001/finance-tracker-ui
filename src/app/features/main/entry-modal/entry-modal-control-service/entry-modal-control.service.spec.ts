@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { EntryModalControlService } from './entry-modal-control.service';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Category } from '../../../../constants/Category';
+import { Category } from '../../../../core/constants/Category';
 
 describe('EntryModalControlService', () => {
   let service: EntryModalControlService;

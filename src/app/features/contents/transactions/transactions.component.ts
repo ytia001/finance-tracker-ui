@@ -4,7 +4,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { Store } from '@ngrx/store';
 import { map, Observable } from 'rxjs';
-import { selectListData } from '../../../../store/selectors/transactions.selector';
 import {
   ListEntry,
   ListGroup,
@@ -12,6 +11,7 @@ import {
   ListGroupIdentifier,
   TransactionsListGroupComponent,
 } from './transactions-list-group/transactions-list-group.component';
+import { selectListData } from '../../../core/store/selectors/transactions.selector';
 
 export interface ListData {
   groups: ListGroup[];
